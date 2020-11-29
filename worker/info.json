@@ -1,13 +1,13 @@
 {
-    "name": "AnyPctTAS",
-    "version": "0.2.2",
-    "factorio_version": "0.18",
-    "title": "Any% TAS",
-    "author": "Gotyoke",
-    "contact": "None",
-    "homepage": "https://forums.factorio.com/viewforum.php?f=79",
-    "description": "Launches a rocket in record time.",
+    "name": "tas_worker",
+    "version": "0.0.0",
+    "factorio_version": "1.1",
+    "title": "TAS Worker",
+    "author": "Proicop",
+    "contact": "prokop@randacek.dev",
+    "homepage": "https://github.com/prokoprandacek/factas",
+    "description": "Executes precomputated tasks",
     "dependencies": [
-        "base = 0.18.17"
+        "base >= 1.1.0"
     ]
 }
