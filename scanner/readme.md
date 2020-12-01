@@ -1,9 +1,9 @@
-Collects info about the worls and writes is into a json file  
+Collects info about the world and writes it into a json file  
 
 triggered by `/exportmap`  
-exports info `script-output/{surface name}.json  
+exports info `script-output/{surface name}.json`  
 
-colleced info:  
+collected info:  
 - water tiles position
 - ore tiles positions and amounts
 
