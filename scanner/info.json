@@ -1,0 +1,13 @@
+{
+    "name": "tas_scanner",
+    "version": "1.0.0",
+    "factorio_version": "1.1",
+    "title": "TAS Scanner",
+    "author": "Proicop",
+    "contact": "prokop@randacek.dev",
+    "homepage": "https://github.com/prokoprandacek/factas",
+    "description": "This mod collects data about the map and exports it into a json",
+    "dependencies": [
+        "base >= 1.1.0"
+    ]
+}
