@@ -1,5 +1,3 @@
-local json = require('json')
-
 local function has_value(tab, val)
     for index, value in ipairs(tab) do
         if value == val then
