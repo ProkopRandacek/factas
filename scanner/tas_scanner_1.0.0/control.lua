@@ -7,7 +7,7 @@ local function has_value(tab, val)
     return false
 end
 
-script.on_nth_tick(2, function(NthTickEvent)
+script.on_nth_tick(3, function(NthTickEvent)
 	local surface = game.get_surface("nauvis")
 	local result = "{ \"water\": [ "
 

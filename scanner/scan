@@ -11,7 +11,7 @@ rm map.zip
 cd ..
 
 # run the map
-./factorio/bin/x64/factorio --benchmark ./workdir/map.zip --benchmark-ticks 11
+./factorio/bin/x64/factorio --benchmark ./workdir/map.zip --benchmark-ticks 3
 rm workdir/* -rf
 
 mv ./factorio/script-output/nauvis.json ./
