@@ -1,0 +1,17 @@
+#!/bin/sh
+echo generating the map
+./factorio/bin/x64/factorio --create workdir/map --map-gen-settings ./speed-gen.json --map-settings ./speed-settings.json --map-gen-seed 1063559207 1> /dev/null
+
+echo injecting the scan script
+cd workdir
+7z x map.zip 1> /dev/null
+cat ../tas_scanner_1.0.0/control.lua >> ./map/control.lua
+rm map.zip
+7z a map.zip map/ 1> /dev/null
+cd ..
+
+# run the map
+./factorio/bin/x64/factorio --benchmark ./workdir/map.zip --benchmark-ticks 11
+rm workdir/* -rf
+
+mv ./factorio/script-output/nauvis.json ./

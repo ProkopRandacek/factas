@@ -7,12 +7,9 @@ local function has_value(tab, val)
     return false
 end
 
-commands.add_command("exportmap", "", function(event)
-	local surface = game.players[event.player_index].surface
-	local result = [[
-{
-"water": [
-]]
+script.on_nth_tick(2, function(NthTickEvent)
+	local surface = game.get_surface("nauvis")
+	local result = "{ \"water\": [ "
 
 	-- tiles
 	local existingTiles = {}
@@ -23,11 +20,7 @@ commands.add_command("exportmap", "", function(event)
 		end
 	end
 	result = result:sub(1, -2)
-	result = result .. [[
-
-],
-"resources": {
-]]
+	result = result .. " ], \"resources\": { "
 
 	-- ores
 	helpTable = {}
@@ -52,10 +45,7 @@ commands.add_command("exportmap", "", function(event)
 		result = result .. "],"
 	end
 	result = result:sub(1, -2)
-	result = result .. [[
-}
-}
-]]
+	result = result .. " } } "
 
 	game.write_file(surface.name ..".json", result)
 	game.print("done")
