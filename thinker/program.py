@@ -5,10 +5,7 @@ from PIL import Image
 f = open("../scanner/nauvis.json", "r").read()
 d = json.loads(f)
 
-xmin = 999999999
-xmax = -999999999
-ymin = 999999999
-ymax = -999999999
+xmin, xmax, ymin, ymax = 999999999, -999999999, 999999999, -999999999
 
 for t in d["water"]:
     x, y = t
@@ -20,12 +17,7 @@ for t in d["water"]:
 w = abs(xmin - xmax)
 h = abs(ymin - ymax)
 
-print(xmin, ymin)
-print(xmax, ymax)
-print(w, h)
-
-im = Image.new("RGB", (w+1, h+1), "#003000")
-
+im = Image.new("RGB", (w + 1, h + 1), "#003000")
 pixels = im.load()
 
 for t in d["water"]:
@@ -34,35 +26,38 @@ for t in d["water"]:
     y -= ymin
     pixels[x, y] = (34, 138, 215)
 
+colors = [(105, 82, 49), (61, 91, 114), (138, 63, 33), (0, 0, 18), (28, 24, 29)]
 
-for t in d["resources"]["stone"]:
-    x, y, a = t
+i = 0
+for r in d["resources"].keys():
+    for t in d["resources"][r]:
+        x, y = t[0], t[1]
+        x -= xmin
+        y -= ymin
+        pixels[x, y] = colors[i]
+    i += 1
+
+nearest = {}
+
+for r in d["resources"].keys():
+    nearest_x = 9999
+    nearest_y = 9999
+    nearest_d = 9999
+    for t in d["resources"][r]:
+        x, y, a = t
+        dis_to_0 = abs(x) + abs(y)
+        if dis_to_0 < nearest_d:
+            nearest_x = x
+            nearest_y = y
+            nearest_d = dis_to_0
+    nearest[r] = [nearest_x, nearest_y]
+
+print(nearest)
+
+for n in nearest.values():
+    x, y = n[0], n[1]
     x -= xmin
     y -= ymin
-    pixels[x, y] = (105, 82, 49)
-
-for t in d["resources"]["iron-ore"]:
-    x, y, a = t
-    x -= xmin
-    y -= ymin
-    pixels[x, y] = (61, 91, 114)
-
-for t in d["resources"]["copper-ore"]:
-    x, y, a = t
-    x -= xmin
-    y -= ymin
-    pixels[x, y] = (138, 63, 33)
-
-for t in d["resources"]["crude-oil"]:
-    x, y, a = t
-    x -= xmin
-    y -= ymin
-    pixels[x, y] = (0, 0, 18)
-
-for t in d["resources"]["coal"]:
-    x, y, a = t
-    x -= xmin
-    y -= ymin
-    pixels[x, y] = (28, 24, 29)
+    pixels[x, y] = (256, 0, 0)
 
 im.save("out.png")
