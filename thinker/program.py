@@ -61,3 +61,11 @@ for n in nearest.values():
     pixels[x, y] = (256, 0, 0)
 
 im.save("out.png")
+
+# Todo:
+# Water can be between nearest ore patch and 0, 0
+
+# Algorithm thig
+# analyze base design blueprint book
+# Place ore miners on patches
+# One by one place building kina near eachother maybe backpack algorithm or something with graphs
