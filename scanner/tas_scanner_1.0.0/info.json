@@ -5,7 +5,7 @@
     "title": "TAS Scanner",
     "author": "Proicop",
     "contact": "prokop@randacek.dev",
-    "homepage": "https://github.com/prokoprandacek/factas",
+    "homepage": "https://github.com/ProkopRandacek/factas/tree/master/scanner",
     "description": "This mod collects data about the map and exports it into a json",
     "dependencies": [
         "base >= 1.1.0"
