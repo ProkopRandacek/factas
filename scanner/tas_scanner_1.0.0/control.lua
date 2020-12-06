@@ -7,7 +7,7 @@ local function has_value(tab, val)
     return false
 end
 
-# there is no need to actually create json. maybe just writting numbers separated by newlines and spaces would save some bytes and probably speed up python imput parse
+-- there is no need to actually create json. maybe just writting numbers separated by newlines and spaces would save some bytes and probably speed up python imput parse
 
 script.on_nth_tick(3, function(NthTickEvent)
 	local surface = game.get_surface("nauvis")
