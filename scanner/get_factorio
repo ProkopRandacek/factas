@@ -1,0 +1,7 @@
+#!/bin/sh
+rm factorio -rf
+curl -L https://factorio.com/get-download/latest/headless/linux64 -o factorio.tar.xz
+7z x factorio.tar.xz
+7z x factorio.tar
+chmod +x factorio/bin/x64/factorio
+rm factorio.tar.xz factorio.tar
