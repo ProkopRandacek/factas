@@ -1,7 +1,7 @@
-Collects info about the world and writes it into a json file  
+Downloads factorio, generates the map and exports it into a json  
 
-triggered by `/exportmap`  
-exports info `script-output/{surface name}.json`  
+run `./scan`  
+info is exported to `./nauvis.json`  
 
 collected info:  
 - water tiles position
